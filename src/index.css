@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-brand-50: #eef5fc;
+  --color-brand-100: #d9eaf9;
+  --color-brand-200: #b4d7f5;
+  --color-brand-300: #7cbcf0;
+  --color-brand-400: #3295ff;
+  --color-brand-500: #1e7be6;
+  --color-brand-600: #1362c4;
+  --color-brand-700: #0f4da0;
+
+  --color-electric-blue: #3295ff;
+  --color-electric-red: #ff3b5c;
+  --color-cyber-green: #10b981;
+  --color-teal-accent: #16d9a5;
+  --color-cyber-purple: #a855f7;
+
+  --shadow-glow-blue: 0 0 35px -3px rgba(50, 149, 255, 0.45), 0 0 12px rgba(50, 149, 255, 0.3);
+  --shadow-glow-red: 0 0 35px -3px rgba(255, 59, 92, 0.45), 0 0 12px rgba(255, 59, 92, 0.3);
+  --shadow-glow-green: 0 0 35px -3px rgba(16, 185, 129, 0.45), 0 0 12px rgba(22, 217, 165, 0.3);
+  --shadow-glow-purple: 0 0 35px -3px rgba(168, 85, 247, 0.45), 0 0 12px rgba(168, 85, 247, 0.3);
+  --shadow-soft-card: 0 16px 40px -6px rgba(23, 44, 82, 0.07), 0 4px 14px -2px rgba(0, 0, 0, 0.03);
+}
+
+@keyframes spinClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinCounter {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes pulseCoreGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.94;
+    filter: drop-shadow(0 0 20px rgba(50, 149, 255, 0.75));
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+    filter: drop-shadow(0 0 36px rgba(50, 149, 255, 0.95)) drop-shadow(0 0 16px rgba(22, 217, 165, 0.6));
+  }
+}
+
+@keyframes shockwaveExpand {
+  0% { transform: scale(0.2); opacity: 1; border-width: 8px; }
+  100% { transform: scale(4.2); opacity: 0; border-width: 1px; }
+}
+
+@keyframes sparkFloat {
+  0% { transform: translate(0, 0) scale(0.8); opacity: 0; }
+  50% { opacity: 0.9; }
+  100% { transform: translate(var(--tx, 20px), var(--ty, -25px)) scale(0); opacity: 0; }
+}
+
+@keyframes float3D {
+  0%, 100% { transform: translateY(0px) rotateX(8deg) rotateY(-6deg); }
+  50% { transform: translateY(-8px) rotateX(4deg) rotateY(-1deg); }
+}
+
+@keyframes radarSweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes dashTravelRed {
+  to { stroke-dashoffset: -40; }
+}
+
+@keyframes dashTravelBlue {
+  to { stroke-dashoffset: -40; }
+}
+
+@keyframes dashTravelGreen {
+  to { stroke-dashoffset: 40; }
+}
+
+.anim-spin-outer { animation: spinClockwise 28s linear infinite; }
+.anim-spin-segmented { animation: spinCounter 18s linear infinite; }
+.anim-spin-telemetry { animation: spinClockwise 12s linear infinite; }
+.anim-spin-fast { animation: spinClockwise 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+.anim-spin-fast-rev { animation: spinCounter 1.3s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+.anim-core-breathe { animation: pulseCoreGlow 2.8s ease-in-out infinite; }
+.anim-float-shield { animation: float3D 6s ease-in-out infinite; transform-style: preserve-3d; }
+.anim-radar { animation: radarSweep 2.2s linear infinite; }
+.anim-dash-red { animation: dashTravelRed 0.85s linear infinite; }
+.anim-dash-blue { animation: dashTravelBlue 0.85s linear infinite; }
+.anim-dash-green { animation: dashTravelGreen 1.1s linear infinite; }
+
+@keyframes isometricFloat {
+  0%, 100% {
+    transform: translateY(0px) rotateX(32deg) rotateZ(-24deg);
+  }
+  50% {
+    transform: translateY(-6px) rotateX(30deg) rotateZ(-22deg);
+  }
+}
+
+@keyframes shieldPulse3D {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+.anim-isometric-stack {
+  animation: isometricFloat 5s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+.anim-shield-3d {
+  animation: shieldPulse3D 3.5s ease-in-out infinite;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-800 {
+  perspective: 800px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.page-bg {
+  background: radial-gradient(circle at 50% 12%, #ffffff 0%, #f1f7fd 45%, #e2effa 100%);
+  min-height: 100vh;
+}
+
+.dot-grid {
+  background-image: radial-gradient(rgba(50, 149, 255, 0.14) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+}
+
+.glass-panel-heavy {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}

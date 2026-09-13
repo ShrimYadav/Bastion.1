@@ -1,0 +1,6 @@
+{
+  "name": "Bastion - Autonomous AI Cyber Defense Arena",
+  "description": "Autonomous closed-loop cyber defense arena testing and protecting applications through multi-agent attack, defense, mutation, and verification in isolated sandboxes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
